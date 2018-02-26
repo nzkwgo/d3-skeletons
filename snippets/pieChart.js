@@ -1,9 +1,10 @@
+// Template taken from https://bl.ocks.org/mbostock/3887235
 //dimensions declarations
 var width = 650;
 var height = 400;
 var margin = {top: 20, right: 15, bottom: 30, left: 40};
-    var w = width - margin.left - margin.right;
-    var h = height - margin.top - margin.bottom;
+var w = width - margin.left - margin.right;
+var h = height - margin.top - margin.bottom;
 
 //dataset declarations
 var csv = "flavors_of_cacao.csv";//Your CSV file here;
@@ -33,7 +34,7 @@ var pie = d3.pie()
     .sort(null)
     .value(function(d) { return d.value2; });
 
-    //Calculate pie chart arc  geometries
+//Calculate pie chart arc  geometries
 var path = d3.arc()
     .outerRadius(radius - 10)
     .innerRadius(0);
@@ -43,11 +44,11 @@ var label = d3.arc()
     .outerRadius(radius - 40)
     .innerRadius(radius - 40);
 
-    //Generate pie slices based on data
-  var arc = g.selectAll(".arc")
+//Generate pie slices based on data
+var arc = g.selectAll(".arc")
     .data(pie(dataset))
     .enter().append("g")
-      .attr("class", "arc");
+    .attr("class", "arc");
 
     //Color the pie segments based on unique names
     arc.append("path")
@@ -59,6 +60,4 @@ var label = d3.arc()
       .attr("transform", function(d) { return "translate(" + label.centroid(d) + ")"; })
       .attr("dy", "0.35em")
       .text(function(d) { return d.value2; });
-
-
 });

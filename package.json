@@ -1,13 +1,14 @@
 {
     "name": "d3-skeletons",
     "displayName": "D3 Skeletons",
-    "description": "Adds snippets for high level skeletons of D3 code",
+    "description": "Javascript snippets for high level skeletons of D3 code",
     "version": "0.0.1",
     "publisher": "nzkwgo",
     "repository": {
         "type": "git",
         "url": "https://github.com/nzkwgo/d3-skeletons.git"
     },
+    "icon": "images/d3-skeleton.png",
     "engines": {
         "vscode": "^1.20.0"
     },
