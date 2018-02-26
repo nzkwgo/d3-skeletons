@@ -5,9 +5,6 @@ var margin = {top: 20, right: 15, bottom: 30, left: 40};
     var w = width - margin.left - margin.right;
     var h = height - margin.top - margin.bottom;
 
-
-
-
 //dataset declarations
 var csv = "flavors_of_cacao.csv";//Your CSV file here;
 var dataset;
@@ -21,26 +18,6 @@ d3.csv(csv, function(error, data) {
             d.value2 = + d.CocoaPercent.slice(0, 2)
     });
     dataset = data;    
-
-
-//scatter plots
-
-
-// var chart = d3.select('body').append("svg");
-
-// var circle = d3.select('svg').append('g');
-
-
-// //circle.exit().remove();
-
-// circle
-//     .data(dataset)
-//     .enter().append("circle")
-//    .attr("cx", function(d) { return x(d.value1);  })
-//    .attr("cy", function(d) { return y(d.value2);  })
-//    .attr("r", 4)
-//    .attr('class', "scatter")
-//     .style("opacity", 0.3);
 
 //pie charts
 
@@ -56,24 +33,29 @@ var pie = d3.pie()
     .sort(null)
     .value(function(d) { return d.value2; });
 
+    //Calculate pie chart arc  geometries
 var path = d3.arc()
     .outerRadius(radius - 10)
     .innerRadius(0);
 
+//radius offsets put label to the edge of pie
 var label = d3.arc()
     .outerRadius(radius - 40)
     .innerRadius(radius - 40);
 
+    //Generate pie slices based on data
   var arc = g.selectAll(".arc")
     .data(pie(dataset))
     .enter().append("g")
       .attr("class", "arc");
 
-  arc.append("path")
+    //Color the pie segments based on unique names
+    arc.append("path")
       .attr("d", path)
       .attr("fill", function(d) { return color(d.name); });
 
-  arc.append("text")
+    //Adds text to pie chart
+    arc.append("text")
       .attr("transform", function(d) { return "translate(" + label.centroid(d) + ")"; })
       .attr("dy", "0.35em")
       .text(function(d) { return d.value2; });
