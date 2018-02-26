@@ -1,6 +1,6 @@
 {
   "D3 Line Chart": {
-		"prefix": "d3-skeleton.lineChart",
+		"prefix": "d3s.lineChart",
 		"body": [
       "// Template from https://bl.ocks.org/mbostock/3883245",
 			"var svg = d3.select('svg'),\r",
@@ -60,7 +60,7 @@
 		"description": "D3 Line Chart - https://bl.ocks.org/mbostock/3883245"
 	},
 	"D3 Bar Chart": {
-		"prefix": "d3-skeleton.barChart",
+		"prefix": "d3s.barChart",
 		"body": [
       "// Template from https://bl.ocks.org/mbostock/3885304\r",
 			"var svg = d3.select(\"svg\"),\r",
@@ -118,7 +118,7 @@
 		"description": "D3 barchart - Taken from https://bl.ocks.org/mbostock/3885304"
   },
   "D3 Piechart": {
-		"prefix": "d3-skeleton.pieChart",
+		"prefix": "d3s.pieChart",
 		"body": [
 			"// Template taken from https://bl.ocks.org/mbostock/3887235\r",
 			"//dimensions declarations\r",
